@@ -1,32 +1,36 @@
-
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class CreateTodo extends Component {
+
   constructor() {
-  super();
-  this.state = {
-    text: '',
-  };
-}
+    super();
+    this.state = {
+      text: '',
+    };
+  }
 
-handleChange = (event) => {
-  this.setState({
-    text: event.target.value
-  });
-};
+  handleChange = event => {
+    this.setState({
+      text: event.target.value
+    });
+  }
 
-  render(){
+  render() {
     return(
       <div>
         <form>
           <p>
             <label>add todo</label>
-            <input type="text" onChange={(event) => this.handleChange(event)}/>
+            <input
+          type="text"
+          onChange={this.handleChange} value={this.state.text}/>
           </p>
           <input type="submit" />
-        </form>
-      </div>
-    );
+       </form>
+       {this.state.text}
+     </div>
+   );
   }
+};
 
 export default CreateTodo;
